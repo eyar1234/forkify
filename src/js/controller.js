@@ -121,5 +121,6 @@ const init = function () {
   searchView.addHendlerSearch(controlSearchResults);
   paginationView.addHendlerButtons(controlPagination);
   addRecpieView.addHendlerUpload(controlAddRecpie);
+  console.log('dogyyy');
 };
 init();
