@@ -4,13 +4,17 @@ import icons from '../../img/icons.svg';
 
 class paginationView extends view {
   _perentElement = document.querySelector('.pagination');
-
+  numPages;
+  renderNumPages() {
+    this._perentElement.insertAdjacentHTML('afterbegin', this.numPages);
+  }
   _generateMarkup() {
     const curPage = this._data.page;
     // how much pages do i need?
     const numPages = Math.ceil(
       this._data.results.length / this._data.resultsPerPage
     );
+
     console.log(numPages);
     // page 1, there are other pages
     if (curPage === 1 && numPages > 1) {

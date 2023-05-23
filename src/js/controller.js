@@ -51,6 +51,9 @@ const controlSearchResults = async function () {
     await model.loadingSearchResults(query);
     //render results
     resultsView.render(model.getSearchResultsPage());
+
+    // render number of pages
+    paginationView.renderNumPages();
     // render pagination buttons
     paginationView.render(model.state.search);
     console.log(model.state.search.results);
@@ -105,8 +108,10 @@ const controlAddRecpie = async function (newRecpie) {
     setTimeout(() => {
       addRecpieView.toggleWindow();
     }, MESSAGE_RECPIE_LODED * 1000);
-    // rerander
-    // addRecpieView.cleanAndPreview();
+    // rerander the recpie filds
+    setTimeout(() => {
+      addRecpieView.cleanAndPreview();
+    }, 3 * 1000);
     console.log(model.state.recipe);
   } catch (err) {
     addRecpieView.renderError(err.message);
